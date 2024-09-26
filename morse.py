@@ -1,5 +1,3 @@
-import requests
-import MorseCodePy
 
 # Dictionary til oversættelse fra bogstaver til morsekode
 morseCode = {
@@ -61,15 +59,27 @@ morseCodeReverse = {
     "--..": "Z"
 }
 
+
+
+
+
 # Denne funktion oversætter et enkelt bogstav (letter) med opslag i dictionay (code) hvis muligt
 def translate(letter, code):
-    pass
+    if letter in code:
+        return code[letter]
+    else:
+        return ""
+
+print(translate('A',morseCode))
+
 
 # Denne funktion oversætter en vilkårlig tekststreng til morsekode
 # '/' markerer nyt bogstav
 # '//' markerer nyt ord
 def encodeMessage(message, code):
+
     pass
+
 
 # Denne funktion oversætter en korrekt formatteret morsebesked til bogstaver
 # '/' markerer nyt bogstav
