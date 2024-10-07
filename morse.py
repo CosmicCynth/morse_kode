@@ -33,34 +33,7 @@ morseCode = {
 }
 
 # Dictionary til oversættelse fra morsekode til bogstaver. Tomt oversættes til mellemrum.
-morseCodeReverse = {
-    ".-": "A",
-    "-...": "B",
-    "-.-.": "C",
-    "-..": "D",
-    ".": "E",
-    "..-.": "F",
-    "--.": "G",
-    "....": "H",
-    "..": "I",
-    ".---": "J",
-    "-.-": "K",
-    ".-..": "L",
-    "--": "M",
-    "-.": "N",
-    "---": "O",
-    ".--.": "P",
-    "--.-": "Q",
-    ".-.": "R",
-    "...": "S",
-    "-": "T",
-    "..-": "U",
-    "...-": "V",
-    ".--": "W",
-    "-..-": "X",
-    "-.--": "Y",
-    "--..": "Z"
-}
+morseCodeReverse = {v: k for k, v in morseCode.items()}
 
 
 
@@ -98,13 +71,12 @@ def decodeMessage(message, code):
     Reverse_output = []
     words = message.split('//')
     for word in words:
-        # Her samler vi bogstaverne for hvert ord ved at slå morsekode op i 'code'-ordbogen
+        # Her samler vi bogstaverne for hvert ord ved at slå morsekode op i code dictonary
         decoded_word = ''.join(code[morse] for morse in word.split('/') if morse in code)
         Reverse_output.append(decoded_word)
-    return ' '.join(Reverse_output)
-
-
+    return ' '.join(Reverse_output) # Her returner vi valuen så vores print funktion kan printe den
 
 
 print("decodeMessage funktion")
-print(decodeMessage(".-//..",morseCodeReverse))
+print(decodeMessage(".-//../.-/.-",morseCodeReverse))
+
